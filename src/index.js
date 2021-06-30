@@ -9,6 +9,7 @@ import store from './store'
 
 import App from './App'
 
+axios.defaults.baseURL = 'http://localhost:8000'
 axios.interceptors.request.use(config => {
   const auth = JSON.parse(localStorage.getItem('xenUser'))
   if (auth) {

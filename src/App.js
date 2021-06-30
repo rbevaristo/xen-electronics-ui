@@ -1,10 +1,13 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { publicRoutes, privateRoutes } from './routes'
 
-import { publicRoutes } from './routes'
-
-import NonAuthLayout from './layouts/NonAuthLayout'
 import AppRoute from './routes/route'
+import EcommerceLayout from './layouts/Ecommerce'
+import NonAuthLayout from './layouts/NonAuthLayout'
+
+import './theme.scss'
 
 const App = () => {
   return (
@@ -21,9 +24,26 @@ const App = () => {
                 />
             ))
         }
+        {
+          privateRoutes.map((route, idx) => (
+              <AppRoute
+                  path={route.path}
+                  layout={EcommerceLayout}
+                  component={route.component}
+                  key={idx}
+                  isAuthProtected={true}
+              />
+          ))
+        }
       </Switch>
     </Router>
   )
 }
 
-export default App
+const mapStateToProps = state => {
+  return {
+    layout: state.Layout
+  }
+}
+
+export default connect(mapStateToProps, null)(App)

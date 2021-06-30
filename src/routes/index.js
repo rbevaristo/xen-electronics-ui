@@ -1,13 +1,21 @@
 import React from 'react'
 
-const TestDisplay = () => <h1>Hello World</h1>
+import { Redirect } from 'react-router-dom'
 
-const authProtectedRoutes = [
-// routes that need to be protected
+import Store from 'pages/Store/Store'
+import Login from 'pages/Authentication/Login'
+import Logout from 'pages/Authentication/Logout'
+
+const Page = () => <Redirect to="/" />
+
+const privateRoutes = [
+  { path: '/store', exact: true, component: Store },
+  { path: '/logout', exact: true, component: Logout },
+  { path: '/', exact: true, component: Page }
 ]
 
 const publicRoutes = [
-  { path: '/', exact: true, component: TestDisplay }
+  { path: '/login', exact: true, component: Login }
 ]
 
-export { authProtectedRoutes, publicRoutes }
+export { privateRoutes, publicRoutes }

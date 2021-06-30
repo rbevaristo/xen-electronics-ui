@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const postRquest = (url, data) => {
+const postRequest = (url, data) => {
   return axios.post(url, data).then(response => {
     if (response.status === 400 || response.status === 500 || response.status === 401) { throw response.data }
     return response.data
@@ -39,7 +39,7 @@ const deleteRequest = (url) => {
 }
 
 export {
-  postRquest,
+  postRequest,
   getRequest,
   putRequest,
   deleteRequest
