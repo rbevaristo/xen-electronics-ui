@@ -16,6 +16,16 @@ A step by step series of examples that tell you how to get a development env run
 * [NodeJS](https://nodejs.org/) 
 * [Direnv](https://direnv.net/)
 
+## Running the app
+* Install dependencies
+```
+npm install
+```
+* Start the app
+```
+npm start
+```
+
 ## Built With
 
 * [ReactJS](https://reactjs.org/) - The Javascript Framework used
